@@ -31,7 +31,11 @@ export default {
         name: this.name,
         email: this.email,
         checkin: this.checkin
-      }
+      };
+
+      GuestService.postGuest(payload)
+      .then(guest => { eventBus.$emit('guest-added', guest)  });
+
     }
   }
 }

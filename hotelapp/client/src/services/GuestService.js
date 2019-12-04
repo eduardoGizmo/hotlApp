@@ -13,10 +13,10 @@ export default {
     })
     .then(res => res.json())
   }
-  // ,
-  // deleteGuest(id){
-  //   return fetch(baseURL + id, {
-  //     method: 'DELETE'
-  //   })
-  // }
+  ,
+  deleteGuest(id){
+    return fetch(baseURL + id, {
+      method: 'DELETE'
+    })
+  }
 }
