@@ -1,9 +1,10 @@
 const express = require('express');
 const app = express();
-const parser = require('boby-parser');
+
+const parser = require('body-parser');
+app.use(parser.json());
 
 const cors = require('cors');
-app.use(parser.json());
 app.use(cors());
 
 const MongoClient = require('mongodb').MongoClient;

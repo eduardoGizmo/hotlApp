@@ -1,32 +1,37 @@
-<template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-  </div>
+<template lang="html">
+<div id="app">
+<guests-form></guests-form>
+</div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import GuestsForm from './components/GuestsForm.vue'
+import GuestService from './services/GuestService.js'
+import {eventBus} from './main.js'
 
 export default {
-  name: 'app',
-  components: {
 
-  },
-  data() {
-    return {
-      guests: []
+name: "app",
+data(){
+  return{
+    guests: [],
+  }
+},
+components:{
+  "guests-form": GuestsForm
+},
+mounted(){
+  this.fetchData();
+},
+methods: {
+  fetchData(){
+    GuestService.getGuests()
+    .then(guests => this.guests = guests);
     }
   }
+  
 }
 </script>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style lang="css" scoped>
 </style>
