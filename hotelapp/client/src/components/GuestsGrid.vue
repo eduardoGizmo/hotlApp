@@ -4,7 +4,8 @@
         <h2>{{guest.name}}</h2>
         <p>{{guest.email}}</p>
         <p>Checked in:</p>
-        <p v-if="checkin == true? 'Yes' : 'No' "></p>
+        <p v-if="guest.checkin === true">Yes</p>
+        <p v-else>No</p>
         <!-- <p v-if="checkin == false">Not Checked</p> -->
         <button v-on:click="handleDelete(guest._id)">Delete</button>
     </div>

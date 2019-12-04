@@ -1,11 +1,12 @@
 <template lang="html">
   <form class="" id="guests-form" method="post" v-on:submit="handleSubmit">
     <label for="name">Enter name</label>
-      <input type="text" id="name" v-model="name">
+      <input type="text" id="name" v-model="name" required>
       <label for="email">Enter email</label>
-      <input type="text" id="email" v-model="email">
+      <input type="text" id="email" v-model="email" required>
       <label for="checkin">Checkin</label>
-      <input type="radio" id="checkin" v-model="checkin">
+      <input type="radio" id="checkin" :value="true" v-model="checkin">yes
+      <input type="radio" id="No checkin" :value="false" v-model="checkin">no
       <input type="submit" id="save" value="save">
   </form>
 </template>
